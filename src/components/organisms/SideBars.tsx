@@ -8,7 +8,7 @@ interface ISideBar {
 
 const SideBar: FC<ISideBar> = ({ filters }) => {
   return (
-    <div className="pt-4 h-full overflow-y-scroll">
+    <div className="pt-4 h-screen overflow-y-scroll">
       {filters.map((filter, index) => (
         <div key={`filter-${index}`}>
           <Filter

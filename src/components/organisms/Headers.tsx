@@ -26,7 +26,7 @@ const Headers = () => {
           </div>
         )}
         {search && (
-          <div className="w-5/6">
+          <div className="w-5/6 md:hidden">
             <SearchInput />
           </div>
         )}
