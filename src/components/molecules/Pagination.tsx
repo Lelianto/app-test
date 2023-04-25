@@ -12,7 +12,7 @@ interface IPagination {
 
 const Pagination: FC<IPagination> = ({ page, totalPage, handlePagination }) => {
   return (
-    <div className="flex justify-center items-center my-8">
+    <div className="flex justify-center items-center mt-8 mb-24 md:my-8">
       <button type="button" onClick={() => handlePagination("back")}>
         <MdOutlineArrowBackIos />
       </button>
