@@ -12,7 +12,7 @@ interface IBottomTabs {
 
 const BottomTabs: FC<IBottomTabs> = ({ showSideBar, setShowSidebar }) => {
   return (
-    <div className="block md:hidden sticky bottom-0 grid grid-cols-4 gap-1 bg-purple-800 h-16 rounded-t-xl">
+    <div className="block md:hidden fixed bottom-0 left-0 right-0 grid grid-cols-4 gap-1 bg-purple-800 h-16 rounded-t-xl">
       <div className="flex items-center justify-center">
         <div
           onClick={() => setShowSidebar(!showSideBar)}
