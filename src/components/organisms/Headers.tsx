@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import logo from "src/assets/logo.png";
+import logo from "src/assets/logo-inverse.png";
 import { IoNotificationsOutline } from "react-icons/io5";
 import { BsCartPlus } from "react-icons/bs";
 import { AiOutlineSearch } from "react-icons/ai";
