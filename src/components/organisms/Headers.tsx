@@ -6,22 +6,32 @@ import { AiOutlineSearch } from "react-icons/ai";
 import { IoMdClose } from "react-icons/io";
 import SearchInput from "src/components/atoms/SearchInput";
 import dummyUser from "src/assets/products/VRC-2.png";
+import { useNavigate } from "react-router-dom";
 
 const Headers = () => {
   const [search, setSearch] = useState<boolean>(false);
+  const navigate = useNavigate();
+
   return (
     <div className="sticky z-50 top-0 w-full bg-purple-800 h-16 ontainer mx-auto px-4">
       <div className="flex items-center h-16 w-full justify-between">
-        {!search && <img className="h-8 md:h-12" src={logo} alt="logo" />}
+        {!search && (
+          <img
+            onClick={() => navigate("/")}
+            className="h-8 md:h-12"
+            src={logo}
+            alt="logo"
+          />
+        )}
         {!search && (
           <div className="text-white min-w-max w-1/2 text-center">
             <a
               href="http://google.com"
-              className="flex justify-center"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <span className="hidden md:block md:mr-2">Go To</span> Marketplace
+              <span className="hidden md:inline md:mr-2">Go To</span>
+              Marketplace
             </a>
           </div>
         )}

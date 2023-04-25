@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useState, Dispatch, SetStateAction } from "react";
 import Headers from "src/components/organisms/Headers";
 import BottomTabs from "src/components/organisms/BottomTabs";
 import Productlist from "src/components/organisms/ProductList";
@@ -61,7 +61,7 @@ const supportList: ICheckboxList[] = [
 export interface IFilterList {
   title: string;
   contents: ICheckboxList[];
-  function: React.Dispatch<React.SetStateAction<ICheckboxList[]>>;
+  function: Dispatch<SetStateAction<ICheckboxList[]>>;
 }
 
 const Home = () => {
