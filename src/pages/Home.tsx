@@ -1,5 +1,6 @@
 import React, { useCallback, useState } from "react";
 import Headers from "src/components/organisms/Headers";
+import BottomTabs from "src/components/organisms/BottomTabs";
 import Productlist from "src/components/organisms/ProductList";
 import Pagination from "src/components/molecules/Pagination";
 import Select from "src/components/atoms/Select";
@@ -65,6 +66,7 @@ export interface IFilterList {
 
 const Home = () => {
   const [page, setPage] = useState<number>(0);
+  const [showSideBar, setShowSidebar] = useState<boolean>(false);
   const [selectedOption, setSelectedOption] = useState<Option | null>(null);
   const [categories, setCategories] = useState<ICheckboxList[]>(categoryList);
   const [contents, setContents] = useState<ICheckboxList[]>(contentList);
@@ -132,7 +134,11 @@ const Home = () => {
       <Headers />
       <div className="container mx-auto px-4 lg:px-1">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-2">
-          <div className="col-span-1 lg:col-span-1">
+          <div
+            className={`${
+              showSideBar ? "" : "hidden"
+            } lg:block col-span-1 lg:col-span-1`}
+          >
             <div className="sticky top-16">
               <SideBar filters={filters} />
             </div>
@@ -158,6 +164,7 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <BottomTabs showSideBar={showSideBar} setShowSidebar={setShowSidebar} />
     </div>
   );
 };
