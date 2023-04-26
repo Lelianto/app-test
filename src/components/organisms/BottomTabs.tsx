@@ -6,6 +6,7 @@ import { BiFilterAlt } from "react-icons/bi";
 import { IoMdClose } from "react-icons/io";
 import { AiOutlineHome } from "react-icons/ai";
 import { useParams, useNavigate } from "react-router-dom";
+import { useSelector, shallowEqual } from "react-redux";
 
 interface IBottomTabs {
   showSideBar?: boolean;
@@ -15,6 +16,10 @@ interface IBottomTabs {
 const BottomTabs: FC<IBottomTabs> = ({ showSideBar, setShowSidebar }) => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const cartCount: number = useSelector(
+    (state: CartState) => state.count,
+    shallowEqual
+  );
   return (
     <div className="block md:hidden fixed bottom-0 left-0 right-0 grid grid-cols-4 gap-1 bg-purple-800 h-16 rounded-t-xl">
       <div className="flex items-center justify-center">
@@ -46,9 +51,11 @@ const BottomTabs: FC<IBottomTabs> = ({ showSideBar, setShowSidebar }) => {
       <div className="flex items-center justify-center">
         <div className="relative bg-black p-2 rounded-lg max-w-min border border-white">
           <BsCartPlus className="text-white text-xl" />
-          <div className="text-white bg-red-500 absolute -top-1 -right-1 rounded-full text-xs h-4 w-4 flex items-center justify-center">
-            1
-          </div>
+          {cartCount !== 0 && (
+            <div className="text-white bg-red-500 absolute -top-1 -right-1 rounded-full text-xs h-4 w-4 flex items-center justify-center">
+              {cartCount}
+            </div>
+          )}
         </div>
       </div>
       <div className="flex items-center justify-center">

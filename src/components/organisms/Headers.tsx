@@ -69,7 +69,7 @@ const Headers = () => {
             <BsCartPlus className="text-white text-xl" />
             {cartCount !== 0 && (
               <div className="text-white bg-red-500 absolute -top-1 -right-1 rounded-full text-xs h-4 w-4 flex items-center justify-center">
-                {`${cartCount}`}
+                {cartCount}
               </div>
             )}
           </div>
