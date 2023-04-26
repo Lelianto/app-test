@@ -6,6 +6,7 @@ import Pagination from "src/components/molecules/Pagination";
 import Select from "src/components/atoms/Select";
 import SideBar from "src/components/organisms/SideBars";
 import { ICheckboxList } from "src/components/molecules/Filter";
+import AddToCartAnim from "src/components/atoms/AddToCartAnim";
 
 interface Option {
   value: string;
@@ -101,6 +102,15 @@ const Home = () => {
     },
   ];
 
+  const [isOpen, setIsOpen] = useState(false);
+  const handleClose = () => {
+    setIsOpen(false);
+  };
+  const handleAddToCartAnim = () => {
+    setIsOpen(true);
+    setTimeout(handleClose, 3000); // close the modal after 3 seconds
+  };
+
   const handleOptionChange = (option: Option | null) => {
     setSelectedOption(option);
   };
@@ -155,7 +165,11 @@ const Home = () => {
                 />
               </div>
             </div>
-            <Productlist images={imagesToShow} page={startIndex} />
+            <Productlist
+              handleAddToCartAnim={handleAddToCartAnim}
+              images={imagesToShow}
+              page={startIndex}
+            />
             <Pagination
               page={page}
               handlePagination={handlePagination}
@@ -165,6 +179,7 @@ const Home = () => {
         </div>
       </div>
       <BottomTabs showSideBar={showSideBar} setShowSidebar={setShowSidebar} />
+      {isOpen && <AddToCartAnim handleClose={handleClose} />}
     </div>
   );
 };

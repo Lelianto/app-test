@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import Provider from "src/components/atoms/Provider";
 import Rating from "src/components/atoms/Rating";
 import { BsCartPlus, BsWallet } from "react-icons/bs";
@@ -6,9 +6,14 @@ import { Dispatch } from "redux";
 import { useDispatch } from "react-redux";
 import { addToCart } from "src/stores/actionCreators";
 
-const AvatarDescription = () => {
+interface IAvatarDescription {
+  handleAddToCartAnim: () => void;
+}
+
+const AvatarDescription: FC<IAvatarDescription> = ({ handleAddToCartAnim }) => {
   const dispatch: Dispatch<any> = useDispatch();
   const handleAddToCart = () => {
+    handleAddToCartAnim();
     dispatch(addToCart({ count: 1 }));
   };
   return (
@@ -20,7 +25,7 @@ const AvatarDescription = () => {
       <div className="flex mb-3">
         <span className="mr-2">Owned By</span> <Provider />
       </div>
-      <div className="border border-neutral-300 rounded-xl p-3 mb-3">
+      <div className="border border-neutral-300 rounded-xl p-3 mb-3 text-justify">
         <div className="text-lg mb-3 font-medium">Description</div>
         It is a long established fact that a reader will be distracted by the
         readable content of a page when looking at its layout. The point of
@@ -36,7 +41,7 @@ const AvatarDescription = () => {
       <div className="xl:absolute -bottom-2 left-3 mt-3">
         <div>
           <span className="text-2xl">Price $</span>{" "}
-          <span className="text-8xl font-bold">50.00</span>
+          <span className="text-8xl font-semibold">50.00</span>
         </div>
       </div>
       <div className="flex mb-2 mt-4">

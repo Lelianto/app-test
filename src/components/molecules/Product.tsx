@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import Rating from "src/components/atoms/Rating";
 import Provider from "src/components/atoms/Provider";
 import Description from "src/components/atoms/Description";
@@ -11,10 +11,12 @@ import { addToCart } from "src/stores/actionCreators";
 interface IProduct {
   image?: string;
   route?: string;
+  handleAddToCartAnim: () => void;
 }
-const Product: FC<IProduct> = ({ image, route }) => {
+const Product: FC<IProduct> = ({ image, route, handleAddToCartAnim }) => {
   const dispatch: Dispatch<any> = useDispatch();
   const handleAddToCart = () => {
+    handleAddToCartAnim();
     dispatch(addToCart({ count: 1 }));
   };
   const navigate = useNavigate();
