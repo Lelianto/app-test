@@ -151,7 +151,7 @@ const Home = () => {
                   options={options}
                   selectedOption={selectedOption}
                   onChange={handleOptionChange}
-                  placeholder="Select an option"
+                  placeholder="Select a sorter"
                 />
               </div>
             </div>

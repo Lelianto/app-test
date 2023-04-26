@@ -2,8 +2,15 @@ import React from "react";
 import Provider from "src/components/atoms/Provider";
 import Rating from "src/components/atoms/Rating";
 import { BsCartPlus, BsWallet } from "react-icons/bs";
+import { Dispatch } from "redux";
+import { useDispatch } from "react-redux";
+import { addToCart } from "src/stores/actionCreators";
 
 const AvatarDescription = () => {
+  const dispatch: Dispatch<any> = useDispatch();
+  const handleAddToCart = () => {
+    dispatch(addToCart({ count: 1 }));
+  };
   return (
     <>
       <div className="text-lg text-blue-400 py-3 font-medium">
@@ -33,7 +40,10 @@ const AvatarDescription = () => {
         </div>
       </div>
       <div className="flex mb-2 mt-4">
-        <div className="cursor-pointer flex items-center text-white bg-blue-600 rounded-lg py-1 px-2 font-bold">
+        <div
+          onClick={handleAddToCart}
+          className="cursor-pointer flex items-center text-white bg-blue-600 rounded-lg py-1 px-2 font-bold"
+        >
           <BsCartPlus />
           <div className="ml-2 text-sm">Add to cart</div>
         </div>

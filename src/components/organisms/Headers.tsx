@@ -7,10 +7,15 @@ import { IoMdClose } from "react-icons/io";
 import SearchInput from "src/components/atoms/SearchInput";
 import dummyUser from "src/assets/products/VRC-2.png";
 import { useNavigate } from "react-router-dom";
+import { useSelector, shallowEqual } from "react-redux";
 
 const Headers = () => {
   const [search, setSearch] = useState<boolean>(false);
   const navigate = useNavigate();
+  const cartCount: number = useSelector(
+    (state: CartState) => state.count,
+    shallowEqual
+  );
 
   return (
     <div className="sticky z-50 top-0 w-full bg-purple-800 h-16 ontainer mx-auto px-4">
@@ -62,9 +67,11 @@ const Headers = () => {
           </div>
           <div className="relative bg-black p-2 rounded-lg ml-3">
             <BsCartPlus className="text-white text-xl" />
-            <div className="text-white bg-red-500 absolute -top-1 -right-1 rounded-full text-xs h-4 w-4 flex items-center justify-center">
-              1
-            </div>
+            {cartCount !== 0 && (
+              <div className="text-white bg-red-500 absolute -top-1 -right-1 rounded-full text-xs h-4 w-4 flex items-center justify-center">
+                {`${cartCount}`}
+              </div>
+            )}
           </div>
           <div className="ml-3 min-w-max">
             <img
