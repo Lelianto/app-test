@@ -17,7 +17,7 @@ const Modal = ({ isOpen, onClose, children }: ModalProps) => {
   return isOpen ? (
     <div
       onClick={handleOverlayClick}
-      className="fixed z-10 top-0 left-0 w-full h-full overflow-auto bg-opacity-50 bg-gray-900 flex justify-center items-center"
+      className="fixed z-50 top-0 left-0 w-full h-full overflow-auto bg-opacity-50 bg-gray-900 flex justify-center items-center"
     >
       <div className="bg-white rounded-lg p-4 max-w-sm mx-auto">
         <div>{children}</div>
