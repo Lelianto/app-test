@@ -20,7 +20,7 @@ const Detail = () => {
   };
   const handleAddToCart = () => {
     setIsOpen(true);
-    // setTimeout(handleClose, 3000); // close the modal after 3 seconds
+    setTimeout(handleClose, 3000); // close the modal after 3 seconds
   };
 
   const scrollToTop = () => {
