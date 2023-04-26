@@ -1,6 +1,5 @@
 import React from "react";
 import { FcLike } from "react-icons/fc";
-import { BsCartPlus } from "react-icons/bs";
 import { useParams } from "react-router-dom";
 
 const AvatarCard = () => {
@@ -22,10 +21,6 @@ const AvatarCard = () => {
           className="transform hover:scale-150 md:hover:scale-125 transition-all duration-300"
         />
       )}
-      <div className="absolute cursor-pointer bottom-2 right-2 flex items-center text-white bg-blue-600 rounded-lg py-1 px-2 font-bold">
-        <BsCartPlus />
-        <div className="ml-2 text-sm">Add</div>
-      </div>
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import React from "react";
 import Provider from "src/components/atoms/Provider";
 import Rating from "src/components/atoms/Rating";
+import { BsCartPlus, BsWallet } from "react-icons/bs";
 
 const AvatarDescription = () => {
   return (
@@ -26,8 +27,20 @@ const AvatarDescription = () => {
       </div>
       <Rating />
       <div className="xl:absolute -bottom-2 left-3 mt-3">
-        <span className="text-2xl">Price $</span>{" "}
-        <span className="text-8xl font-bold">50.00</span>
+        <div>
+          <span className="text-2xl">Price $</span>{" "}
+          <span className="text-8xl font-bold">50.00</span>
+        </div>
+      </div>
+      <div className="flex mb-2 mt-4">
+        <div className="cursor-pointer flex items-center text-white bg-blue-600 rounded-lg py-1 px-2 font-bold">
+          <BsCartPlus />
+          <div className="ml-2 text-sm">Add to cart</div>
+        </div>
+        <div className="ml-4 cursor-pointer flex items-center text-white bg-blue-600 rounded-lg py-1 px-2 font-bold">
+          <BsWallet />
+          <div className="ml-2 text-sm">Buy now</div>
+        </div>
       </div>
     </>
   );
